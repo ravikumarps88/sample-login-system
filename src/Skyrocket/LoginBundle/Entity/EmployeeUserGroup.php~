@@ -1,0 +1,23 @@
+<?php
+
+namespace Skyrocket\LoginBundle\Entity;
+
+use FOS\UserBundle\Model\Group as BaseGroup;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity(repositoryClass="Skyrocket\LoginBundle\Repository\EmployeeUserGroupRepository")
+ * @ORM\Table(name="employee_user_group")
+ */
+class EmployeeUserGroup
+{
+    /**
+     * @var \skyrocket\LoginBundle\Entity\Employee
+     */
+    private $employee;
+    
+    /**
+     * @var \skyrocket\LoginBundle\Entity\EmployeeGroup
+     */
+    private $employeeGroup;
+}

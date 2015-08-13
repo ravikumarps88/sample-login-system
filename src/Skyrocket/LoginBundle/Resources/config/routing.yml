@@ -1,0 +1,71 @@
+fos_user_security_login:
+    pattern:  /signin
+    defaults: { _controller: FOSUserBundle:Security:login }
+    
+fos_user_security_check:
+    pattern:  /login_check
+    defaults: { _controller: FOSUserBundle:Security:check }
+
+fos_user_security_logout:
+    pattern:  /signout
+    defaults: { _controller: FOSUserBundle:Security:logout }
+    
+fos_user_resetting_request:
+    pattern:  /request
+    defaults: { _controller: FOSUserBundle:Resetting:request }
+    
+fos_user_resetting_send_email:
+    pattern:  /send-email
+    defaults: { _controller: FOSUserBundle:Resetting:sendEmail }
+    
+fos_user_resetting_check_email:
+    pattern:  /check-email
+    defaults: { _controller: FOSUserBundle:Resetting:checkEmail }
+
+fos_user_resetting_reset:
+    pattern:  /reset/{token}
+    defaults: { _controller: FOSUserBundle:Resetting:reset }
+
+skyrocket_admin_homepage:
+    path:     /dashboard
+    defaults: { _controller: SkyrocketLoginBundle:Default:dashboard }
+    
+skyrocket_admin_add_new_employee:
+    path:     /employee/register
+    defaults: { _controller: SkyrocketLoginBundle:Registration:register }
+
+skyrocket_admin_registration_confirmed:
+    path:     /employee/register/confirmed
+    defaults: { _controller: SkyrocketLoginBundle:Registration:register }
+    
+skyrocket_admin_employee_resigned:
+    path:     /employee/resigned/{employeeId}
+    defaults: { _controller: SkyrocketLoginBundle:Default:makeEmployeeResigned }
+    
+skyrocket_admin_show_resigned:
+    path:     /resigned/show
+    defaults: { _controller: SkyrocketLoginBundle:Default:showResigned }
+    
+skyrocket_admin_resigned_filter:
+    path:     /resigned/filter
+    defaults: { _controller: SkyrocketLoginBundle:Default:resignedFilter }
+   
+skyrocket_admin_new_group:
+    path:     /group/new
+    defaults: { _controller: FOSUserBundle:Group:new }
+    
+skyrocket_admin_group_list:
+    path:     /group/list
+    defaults: { _controller: FOSUserBundle:Group:list }
+    
+skyrocket_admin_group_show:
+    path:     /group/{groupName}
+    defaults: { _controller: FOSUserBundle:Group:show }
+    
+skyrocket_admin_group_edit:
+    path:     /group/{groupName}/edit
+    defaults: { _controller: FOSUserBundle:Group:edit }
+    
+skyrocket_admin_group_delete:
+    path:     /group/{groupName}/delete
+    defaults: { _controller: FOSUserBundle:Group:list }

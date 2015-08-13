@@ -1,0 +1,48 @@
+{% extends '::skyrocket/layout.html.twig' %}
+{% block pagecontent %}
+    <ul>
+        <li><a href="{{ path('skyrocket_admin_add_new_employee') }}">Add new employee</a></li>
+        <li><a href="{{ path('skyrocket_admin_show_resigned') }}">Click to view resigned employees</a></li>
+        <li><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
+    </ul>
+    <div>
+        <div style="padding-bottom: 20px;padding-left: 10px;"><span style="font-weight: bold;font-size:100%;">All active employees:</span></div>
+        <div style="padding: 10px;">
+            <form action="{{ path('skyrocket_admin_homepage') }}" method='post'>
+                <label style="padding-right: 5px;">From date:</label><input class="dateField" type='text' name='fromDate' />
+                <label style="padding-right: 5px;">To date:</label><input class="dateField" type='text' name='toDate' />
+                <input type="submit" value="Filter">
+            </form>
+        </div>
+        <div style="padding: 10px;float:left;">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>S No.</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% set i=1 %}
+                    {% for emp in employees %}
+                        <tr>
+                            <td>{{i}}</td>
+                            <td>{{emp.username}}</td>
+                            <td>{{emp.email}}</td>
+                            <td>{% if(emp.isResigned != 1) %} <a href="{{ path("skyrocket_admin_employee_resigned",{"employeeId":emp.id}) }}">Click to resign</a> {% endif %}</td>
+                        </tr>
+                        {% set i=i+1 %}
+                    {% endfor %}
+                </tbody>
+            </table> 
+        </div>
+    </div>
+    <script>
+        $(function () {
+            $(".dateField").datepicker();
+        });
+    </script>
+{% endblock %}
+

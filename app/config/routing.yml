@@ -1,0 +1,13 @@
+skyrocket_login:
+    resource: "@SkyrocketLoginBundle/Resources/config/routing.yml"
+    prefix:   /admin/
+    
+fos_user_group:
+    resource: "@FOSUserBundle/Resources/config/routing/group.xml"
+    prefix: /group
+#    
+#fos_user:
+#    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
